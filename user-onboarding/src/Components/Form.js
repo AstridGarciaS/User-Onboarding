@@ -1,8 +1,8 @@
 import React from 'react'
 
 const Form = (props) => {
-    const { change, submit} = props;
-    const { username, email, Password, tos } = props.values;
+    const { change, submit, errors } = props;
+    const { username, email, password, tos } = props.values;
 
     const onChange = (e) => {
         const { name, value, checked, type } = e.target;
@@ -17,6 +17,10 @@ const Form = (props) => {
     return (
         <div>
             <h1>My Cool Form!</h1>
+            <p>{errors.username}</p>
+            <p>{errors.password}</p>
+            <p>{errors.email}</p>
+            <p>{errors.tos}</p>
                 <form onSubmit={onSubmit}>
                     <label>Name:
                         <input
@@ -36,9 +40,9 @@ const Form = (props) => {
                     </label>
                     <label>Password
                         <input
-                            type='Password'
-                            name='Password'
-                            value={Password}
+                            type='password'
+                            name='password'
+                            value={password}
                             onChange={onChange}
                         />
                     </label>
